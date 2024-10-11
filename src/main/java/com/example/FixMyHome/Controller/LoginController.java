@@ -21,6 +21,10 @@ public class LoginController {
 	public String loginPage(@ModelAttribute("login") LoginModel login) {
 		return "redirect:/login";
 	}
-
+	
+	@GetMapping("/logout")
+	public String logout() {
+		return "redirect:/home";
+	}
 	
 }

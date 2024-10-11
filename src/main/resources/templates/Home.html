@@ -1,19 +1,195 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <title>FixMyHome</title>
+    <meta name="description" content="FixMyHome provides professional home repair and maintenance services including plumbing, electrical, and cleaning.">
+    <meta name="keywords" content="home repairs, plumbing, electrical, cleaning, maintenance, trusted professionals">
+    <meta name="author" content="FixMyHome">
+    
+    <meta property="og:title" content="FixMyHome - Home Repair & Maintenance Services">
+    <meta property="og:description" content="Find trusted professionals for plumbing, electrical, and cleaning services.">
+    <meta property="og:image" content="https://your-image-link.jpg">
+    <meta property="og:url" content="https://www.fixmyhome.com">
+    
+    <link rel="stylesheet" href="/css/Home.css"> 
 </head>
 <body>
-	<nav>
-		<div class="container">
-			<span>FixMyHome</span>
-			<ul>
-				<li><a th:href="@{/home}">Home</a></li>
-				<li><a th:href="@{/services}">Services</a></li>
-				<li><a th:href="@{/logout}">Logout</a></li>
-			</ul>
-		</div>
-	</nav>
+    <header>
+        <nav>
+            <div class="main-container">
+                <span class="logo">FixMyHome</span>
+                <ul class="nav-menu">
+                    <li><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/services}">Services</a></li>
+                    <li><a th:href="@{/logout}">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <strong>Your One-Stop Solution for Home Repairs and Maintenance</strong>
+                <p>Find trusted professionals for all your home service needs—from plumbing to electrical work and more.</p>
+                <button class="btn-book" onclick="window.location.href='/book-service'" aria-label="Book a home service">Book a Service</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services-offered">
+        <div class="main-container">
+            <strong>Services</strong>
+            <ul>
+                <li>
+                    <figure>
+                        <img src="https://kgaccountantsblog.wordpress.com/wp-content/uploads/2014/03/plumber.jpg" alt="Plumbing service with a professional fixing pipes in a house">
+                        <figcaption><strong>Plumbing</strong></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="https://oncallelectric.ca/wp-content/uploads/2021/02/importance-of-hiring-an-electrician-over-diy-2-1-1.jpg" alt="Electrician working on electrical repairs">
+                        <figcaption><strong>Electrical</strong></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="https://rjcd.de/wp-content/uploads/2011/05/Depositphotos_22909902_original-1024x990.jpg" alt="Cleaning service with a professional cleaning a house">
+                        <figcaption><strong>Cleaning</strong></figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="about-us">
+    <div class="main-container">
+        <h2>Why Choose FixMyHome?</h2>
+        <p>At FixMyHome, we pride ourselves on delivering the best home repair services through a professional and reliable team. Here’s why you should choose us:</p>
+        <ul class="features-list">
+            <li>
+                <img src="https://png.pngtree.com/png-clipart/20230524/original/pngtree-verified-stamp-png-image_9168723.png" alt="Verified Professionals">
+                <div class="feature-text">
+                    <strong>Verified Professionals</strong>
+                    <p>All our professionals are background checked and highly skilled in their respective fields.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/best-price-stamp-1-1024x1024.png" alt="Transparent Pricing">
+                <div class="feature-text">
+                    <strong>Transparent Pricing</strong>
+                    <p>Clear and upfront pricing with no hidden costs, so you know exactly what you’re paying for.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://www.minifob.com/wp-content/uploads/2020/03/QUICK-RESPONSE.png" alt="Quick Booking">
+                <div class="feature-text">
+                    <strong>Quick and Easy Booking</strong>
+                    <p>Book services online in just a few clicks, and we’ll take care of the rest.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://www.bongo.com.au/wp-content/uploads/2015/11/Quality-Service-Reliability1.jpg" alt="High-Quality Services">
+                <div class="feature-text">
+                    <strong>Reliable & High-Quality Services</strong>
+                    <p>We guarantee quality workmanship with reliable service that you can trust.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+    <section class="how-it-works">
+    <div class="main-container">
+        <h2>How It Works</h2>
+        <p>Follow these simple steps to get your home repair done efficiently:</p>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1034/1034140.png" alt="Search Service Icon">
+                </div>
+                <h3>1. Search or Select the Service</h3>
+                <p>Choose the service that fits your need from our list.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2553/2553691.png" alt="Choose Time Icon">
+                </div>
+                <h3>2. Choose a Time That Works</h3>
+                <p>Pick a time slot that suits your schedule.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/841/841890.png" alt="Professional Arrives Icon">
+                </div>
+                <h3>3. Professional Arrives</h3>
+                <p>A trusted professional comes to complete the job.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1484/1484717.png" alt="Feedback Icon">
+                </div>
+                <h3>4. Provide Feedback</h3>
+                <p>Rate the service and share your experience with us.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="testimonials">
+    <div class="main-container">
+        <h2>Customer Reviews</h2>
+        <div class="reviews">
+            <div class="review">
+                <div class="card">
+                    <img src="https://static.vecteezy.com/system/resources/previews/024/183/502/non_2x/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="John Doe">
+                    <h3>John Doe</h3>
+                    <p>Great service! The plumbing issue was solved in no time.</p>
+                </div>
+            </div>
+            <div class="review">
+                <div class="card">
+                    <img src="https://png.pngtree.com/png-clipart/20220909/original/pngtree-cartoon-man-avatar-vector-ilustration-png-image_8515463.png" alt="Jane Smith">
+                    <h3>Jane Smith</h3>
+                    <p>Professional electricians, and they fixed the issue promptly.</p>
+                </div>
+            </div>
+            <div class="review">
+                <div class="card">
+                    <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-cute-girl-avatar-material-png-image_4023832.jpg" alt="Mark Johnson">
+                    <h3>Mark Johnson</h3>
+                    <p>Excellent cleaning service. My house has never looked better!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+   <section class="service-areas">
+    <div class="container">
+        <h2>Service Areas</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=..." 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2024 FixMyHome. All rights reserved.</span>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
 </body>
 </html>
