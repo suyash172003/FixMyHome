@@ -1,7 +1,5 @@
 package com.example.FixMyHome.Model;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,10 +12,20 @@ import lombok.ToString;
 @Setter
 @ToString
 public class LoginModel {
-	
-	@Value("email")
 	private String email;
-	@Value("password")
 	private String password;
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 }

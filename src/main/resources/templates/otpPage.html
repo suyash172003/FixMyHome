@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="/css/Login.css" rel="stylesheet"></link>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="login-container">
+		<form th:action="@{/otp}" th:method="post" th:object="${otp}" class="login-form">
+			<strong>Enter OTP</strong>
+			<div class="input-group">
+				<input type="text" placeholder="OTP" name="FormOTP" th:field="*{FormOTP}"></input>
+			</div>
+			<div class="input-group">
+				<input type="hidden" name="GeneratedOTP" th:field="*{GeneratedOTP}"></input>
+			</div>
+			<div th:if="${message}" style="text-align: center; color: red; margin: 10px 0;">
+    				<span th:text="${message}"></span>
+			</div>
+			<button type="submit" class="submit-btn">Verify OTP</button>
+		</form>
+	</div>
+</body>
+</html>

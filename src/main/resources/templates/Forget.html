@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="/css/Login.css" rel="stylesheet"></link>
+</head>
+<body>
+	<div class="login-container">
+			<form th:action="@{/forget}" th:method="post" th:object="${forget}" class="login-form">
+			<strong>Enter Email Id</strong>
+			<div class="input-group">
+				<input type="text" name="email" placeholder="Email"></input>
+			</div>
+			<div class="input-group">
+				<input type="hidden" name="password"></input>
+			</div>
+			<button type="submit" class="submit-btn">Send OTP</button>
+		</form>
+	</div>
+</body>
+</html>

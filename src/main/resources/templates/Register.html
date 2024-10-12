@@ -24,6 +24,14 @@
             <div class="input-group">
                 <input type="password" name="password" placeholder="Password" required>
             </div>
+            
+            <div th:if="${message}" style="text-align: center; color: green; margin: 10px 0;">
+    				<span th:text="${message}"></span>
+			</div>
+            
+            <div th:if="${errorMessage}" style="text-align: center; color: red; margin: 10px 0;">
+    				<span th:text="${errorMessage}"></span>
+			</div>
             <button type="submit" class="submit-btn">Sign Up</button>
             <p class="login-link">Already Registered? <a th:href="@{/login}">Login Here</a></p>
         </form>
