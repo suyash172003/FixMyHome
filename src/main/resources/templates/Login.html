@@ -19,6 +19,9 @@
             <div th:if="${message}" style="text-align: center; color: green; margin: 10px 0;">
     				<span th:text="${message}"></span>
 			</div>
+			<div th:if="${errorMessage}" style="text-align: center; color: red; margin: 10px 0;">
+    				<span th:text="${errorMessage}"></span>
+			</div>
             <p class="signup-link"><a th:href="@{/forget}">Forget Password</a></p>
             <p class="signup-link">New User? <a th:href="@{/register}">Sign Up</a></p>
         </form>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.FixMyHome.Model.LoginModel;
 import com.example.FixMyHome.Model.OtpModel;
@@ -35,12 +36,20 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String loginPage(@ModelAttribute("login") LoginModel login) {
-		return "Home";
+	public String loginPage(@ModelAttribute("login") LoginModel login,RedirectAttributes redirect,HttpSession session) {
+		String email=login.getEmail();
+		if(registering.getByEmail(email)!=null && registering.getByEmail(email).getPassword().compareTo(login.getPassword())==0) {
+			session.setAttribute("login", login);
+			return "redirect:/home";
+		}
+		redirect.addFlashAttribute("errorMessage","Invalid Credentials");
+		return "redirect:/login";
 	}
 	
 	@GetMapping("/logout")
-	public String logout() {
+	public String logout(Model model,HttpSession session) {
+		model.addAttribute("login",null);
+		session.invalidate();
 		return "redirect:/home";
 	}
 	
@@ -51,7 +60,12 @@ public class LoginController {
 	}
 	
 	@PostMapping("/forget")
-	public String otpPage(Model model,@ModelAttribute("forget") LoginModel forget,HttpSession session) {
+	public String otpPage(Model model,@ModelAttribute("forget") LoginModel forget,HttpSession session,RedirectAttributes redirect) {
+		if(registering.getByEmail(forget.getEmail())==null){
+			redirect.addFlashAttribute("errorMessage","Not Registered with this email Id");
+			return "redirect:/forget";
+		}
+		
 		int generate=random.nextInt(999999);
 		email.sendEmailTo(forget.getEmail(), "OTP :"+ generate);
 		OtpModel otp=new OtpModel();
@@ -62,19 +76,27 @@ public class LoginController {
 	}
 	
 	@PostMapping("/otp")
-	public String otpPage(@ModelAttribute("otp") OtpModel otp,Model model) {
+	public String otpPage(@ModelAttribute("otp") OtpModel otp,Model model,RedirectAttributes redirect) {
 		if(otp.getGeneratedOTP().compareTo(otp.getFormOTP())==0) {
 			model.addAttribute("passwordForm", new LoginModel());
-			return "SetPassword";
+			redirect.addFlashAttribute("message","OTP Verification is Successfull");
+			return "redirect:/setPassword";
 		}
-		return "redirect:/login";
+		redirect.addFlashAttribute("errorMessage","OTP Verification is Failed");
+		return "redirect:/forget";
+	}
+	
+	@GetMapping("/setPassword")
+	public String setPassword(@ModelAttribute("otp") OtpModel otp,Model model) {
+		return "SetPassword";
 	}
 	
 	@PostMapping("/setPassword")
-	public String setPassword(@ModelAttribute("password") LoginModel passwordForm,HttpSession session) {
+	public String setPassword(@ModelAttribute("password") LoginModel passwordForm,HttpSession session,RedirectAttributes redirect) {
 		LoginModel forget=(LoginModel) session.getAttribute("forget");
 		RegisterModel register=registering.getByEmail(forget.getEmail());
 		register.setPassword(passwordForm.getPassword());
+		redirect.addFlashAttribute("message", "Password Changed Successfully");
 		registering.save(register);
 		return "redirect:/login";
 	}

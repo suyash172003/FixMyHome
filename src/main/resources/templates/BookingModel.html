@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Book a Service</h2>
+        <form action="/confirm-booking" method="POST">
+            <div class="form-group">
+                <label for="serviceName">Service Name</label>
+                <input type="text" class="form-control" id="serviceName" name="serviceName" th:value="${serviceName}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="serviceInfo">Your Issue</label>
+                <input type="text" class="form-control" id="serviceInfo" name="serviceInfo" required>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="bookingDate">Preferred Date</label>
+                <input type="date" class="form-control" id="bookingDate" name="bookingDate" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </form>
+    </div>
+
+    
+</body>    
+</html>

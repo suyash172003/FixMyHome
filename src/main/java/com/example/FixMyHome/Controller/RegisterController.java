@@ -41,11 +41,18 @@ public class RegisterController {
 			email.sendEmailTo(register.getEmail(), "OTP :"+ generate);
 			OtpModel otp=new OtpModel();
 			otp.setGeneratedOTP(String.valueOf(generate));
-			model.addAttribute("otp",otp);
-			return "otpPage1";
+			session.setAttribute("otp",otp);
+			return "redirect:/otpPage";
 		}
 		redirect.addFlashAttribute("errorMessage", "Already Registered");
 		return "redirect:/register";
+	}
+	
+	@GetMapping("/otpPage")
+	public String otpPage(HttpSession session,Model model) {
+		OtpModel otp=(OtpModel) session.getAttribute("otp");
+		model.addAttribute("otp",otp);
+		return "otpPage1";
 	}
 	
 	@PostMapping("/otp1")
@@ -57,6 +64,6 @@ public class RegisterController {
 			return "redirect:/login";
 		}
 		redirect.addFlashAttribute("message", "OTP Verification failed!!");
-		return "otpPage";
+		return "redirect:/otpPage";
 	}
 }

@@ -15,6 +15,9 @@
 			<div class="input-group">
 				<input type="hidden" name="GeneratedOTP" th:field="*{GeneratedOTP}"></input>
 			</div>
+			<div th:if="${message}" style="text-align: center; color: red; margin: 10px 0;">
+    				<span th:text="${message}"></span>
+			</div>
 			<button type="submit" class="submit-btn">Verify OTP</button>
 		</form>
 	</div>

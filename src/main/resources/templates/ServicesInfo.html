@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Page - Fix My Home</title>
+    <link href="/css/Services.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="main-container">
+            <span class="logo">FixMyHome</span>
+            <ul class="nav-menu">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/services}">Services</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section class="container mt-5">
+    <h2 class="text-center">Our Services</h2>
+    <p class="text-center">Choose from a wide range of home services.</p>
+
+    <div class="service-categories">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h3>Electrical Services</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>AC Repair</strong> - Starting at $100 
+                        <a th:href="@{/book-service(serviceName='AC Repair')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Expert AC repair to keep you cool during hot days.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Fan Repair</strong> - Starting at $50 
+                        <a th:href="@{/book-service(serviceName='Fan Repair')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Reliable fan repair service for all types of fans.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Washing Machine Repair</strong> - Starting at $150 
+                        <a th:href="@{/book-service(serviceName='Washing Machine Repair')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Professional washing machine repair to ensure your laundry routine is uninterrupted.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Refrigerator Repair</strong> - Starting at $120 
+                        <a th:href="@{/book-service(serviceName='Refrigerator Repair')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Keep your food fresh with our expert refrigerator repair services.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h3>Plumbing Services</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Pipe Repair</strong> - Starting at $80 
+                        <a th:href="@{/book-service(serviceName='Pipe Repair')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Quick and efficient pipe repair to prevent leaks and water damage.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Drain Cleaning</strong> - Starting at $70 
+                        <a th:href="@{/book-service(serviceName='Drain Cleaning')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Comprehensive drain cleaning to ensure smooth drainage.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Water Leakage Problem</strong> - Starting at $90 
+                        <a th:href="@{/book-service(serviceName='Water Leakage Problem')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Identify and fix water leakage problems quickly to avoid damage.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h3>Cleaning Services</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Deep Room Cleaning</strong> - Starting at $70 
+                        <a th:href="@{/book-service(serviceName='Deep Room Cleaning')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Thorough cleaning of rooms to ensure a spotless environment.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Bathroom Cleaning</strong> - Starting at $120 
+                        <a th:href="@{/book-service(serviceName='Bathroom Cleaning')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Detailed bathroom cleaning for hygiene and freshness.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Kitchen Cleaning</strong> - Starting at $100 
+                        <a th:href="@{/book-service(serviceName='Kitchen Cleaning')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Comprehensive kitchen cleaning to keep your cooking space pristine.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h3>Carpentry Services</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Custom Cabinetry</strong> - Starting at $70 
+                        <a th:href="@{/book-service(serviceName='Custom Cabinetry')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Tailored cabinetry solutions to enhance your space.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Door Installation and Repair</strong> - Starting at $120 
+                        <a th:href="@{/book-service(serviceName='Door Installation and Repair')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Expert installation and repair of doors for security and aesthetics.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Deck Building</strong> - Starting at $100 
+                        <a th:href="@{/book-service(serviceName='Deck Building')}" class="btn btn-primary btn-sm float-right">Book Now</a>
+                        <p class="service-description">Custom deck building to create outdoor living spaces.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 FixMyHome. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

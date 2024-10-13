@@ -18,11 +18,20 @@
         <nav>
             <div class="main-container">
                 <span class="logo">FixMyHome</span>
-                <ul class="nav-menu">
-                    <li><a th:href="@{/home}">Home</a></li>
-                    <li><a th:href="@{/services}">Services</a></li>
-                    <li><a th:href="@{/logout}">Logout</a></li>
-                </ul>
+             
+                	<div th:if="${login==null}">
+                		<ul class="nav-menu">
+                		<li><a th:href="@{/login}">Login</a></li>
+                    	<li><a th:href="@{/register}">Sign UP</a></li>
+                    	 </ul>
+                	</div>
+                	<div th:if="${login}">
+                		<ul class="nav-menu">
+                		<li><a th:href="@{/home}">Home</a></li>
+	                    <li><a th:href="@{/services}">Services</a></li>
+	                    <li><a th:href="@{/logout}">Logout</a></li>
+                    	</ul>
+                	</div>
             </div>
         </nav>
     </header>

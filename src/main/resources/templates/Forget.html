@@ -15,6 +15,9 @@
 			<div class="input-group">
 				<input type="hidden" name="password"></input>
 			</div>
+			<div th:if="${errorMessage}" style="text-align: center; color: red; margin: 10px 0;">
+    				<span th:text="${errorMessage}"></span>
+			</div>
 			<button type="submit" class="submit-btn">Send OTP</button>
 		</form>
 	</div>
