@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Booking Information</title>
+    <link rel="stylesheet" href="/css/Bookings.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="main-container">
+            <span class="logo">FixMyHome</span>
+            <ul class="nav-menu">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/services}">Services</a></li>
+                <li><a th:href="@{/bookings}">Bookings</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="booking-table-section">
+        <h1>Your Bookings</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking Date</th>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${Booked}">
+                    <td th:text="${item.bookingDate}">Booking Date</td>
+                    <td th:text="${item.serviceName}">Service</td>
+                    <td th:text="${item.description}">Description</td>
+                    <td th:text="${item.status}">Status</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 FixMyHome. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -40,6 +40,7 @@ public class LoginController {
 		String email=login.getEmail();
 		if(registering.getByEmail(email)!=null && registering.getByEmail(email).getPassword().compareTo(login.getPassword())==0) {
 			session.setAttribute("login", login);
+			session.setAttribute("userId",registering.getByEmail(email).getId());
 			return "redirect:/home";
 		}
 		redirect.addFlashAttribute("errorMessage","Invalid Credentials");

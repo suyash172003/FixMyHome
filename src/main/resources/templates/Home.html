@@ -29,6 +29,7 @@
                 		<ul class="nav-menu">
                 		<li><a th:href="@{/home}">Home</a></li>
 	                    <li><a th:href="@{/services}">Services</a></li>
+	                    <li><a th:href="@{/bookings}">Bookings</a></li>
 	                    <li><a th:href="@{/logout}">Logout</a></li>
                     	</ul>
                 	</div>
@@ -41,7 +42,9 @@
             <div class="hero-text">
                 <strong>Your One-Stop Solution for Home Repairs and Maintenance</strong>
                 <p>Find trusted professionals for all your home service needs—from plumbing to electrical work and more.</p>
-                <button class="btn-book" onclick="window.location.href='/book-service'" aria-label="Book a home service">Book a Service</button>
+                <form th:action="@{/services}" th:method="get">
+                	<button class="btn-book" aria-label="Book a home service">Book a Service</button>
+                </form>
             </div>
         </div>
     </section>
